@@ -8,7 +8,7 @@ namespace DesignPatterns
 {
     public interface Investimento
     {
-        double Calculo(double valor);
-
+        double Calculo(Conta conta);
+        double CalculaImposto(double valor);
     }
 }

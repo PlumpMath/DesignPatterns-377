@@ -14,6 +14,7 @@ namespace DesignPatterns
     {
         public CalculadorDeImposto calculadora = new CalculadorDeImposto();
         public RealizadorDeInvestimentos calculadorInvestimento = new RealizadorDeInvestimentos();
+        public Conta contaTeste = new Conta();
 
         public FormPrincipal()
         {
@@ -45,22 +46,34 @@ namespace DesignPatterns
 
         private void buttonConservador_Click(object sender, EventArgs e)
         {
+
+            contaTeste.Deposita(contaTeste.Saldo * -1);
+            contaTeste.Deposita(Convert.ToDouble(textValor.Text));
+
             MessageBox.Show("Após investimento conservador: " + 
-                            calculadorInvestimento.Calculo(Convert.ToDouble(textValor.Text),
+                            calculadorInvestimento.Calculo(contaTeste,
                             new Conservador()));         
         }
 
         private void buttonModerado_Click(object sender, EventArgs e)
         {
+
+            contaTeste.Deposita(contaTeste.Saldo * -1);
+            contaTeste.Deposita(Convert.ToDouble(textValor.Text));
+
             MessageBox.Show("Após investimento moderado: " +
-                            calculadorInvestimento.Calculo(Convert.ToDouble(textValor.Text),
+                            calculadorInvestimento.Calculo(contaTeste,
                             new Moderado()));
         }
 
         private void buttonArrojado_Click(object sender, EventArgs e)
         {
+
+            contaTeste.Deposita(contaTeste.Saldo * -1);
+            contaTeste.Deposita(Convert.ToDouble(textValor.Text));
+
             MessageBox.Show("Após investimento arrojado: " +
-                            calculadorInvestimento.Calculo(Convert.ToDouble(textValor.Text),
+                            calculadorInvestimento.Calculo(contaTeste,
                             new Arrojado()));
         }
     }

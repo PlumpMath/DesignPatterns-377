@@ -8,18 +8,22 @@ namespace DesignPatterns
 {
     public class Conservador : Investimento
     {
-        public double Calculo(double valor)
+        public double Calculo(Conta conta)
         {
             double resultado = 0;
-            double saldo = 0;
+            double valor = conta.Saldo;
 
-            saldo = valor * 0.008;  //-- 0,8 %
-
-            saldo = saldo * 0.75;   //-- Imposto de 25%
-
-            resultado = valor + saldo;
+            resultado = valor * 0.008;  //-- 0,8 %
 
             return resultado;
+        }
+        public double CalculaImposto(double valor)
+        {
+            double valorImposto = 0;
+
+            valorImposto = valor * 0.25;   //-- Imposto de 25%
+
+            return valorImposto;
         }
     }
 }

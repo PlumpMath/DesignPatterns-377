@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DesignPatterns
 {
     public class RealizadorDeInvestimentos
     {
-        public double Calculo(double valor, Investimento perfilInvestimento)
+        public double Calculo(Conta conta, Investimento perfilInvestimento)
         {
-            double resultado = perfilInvestimento.Calculo(valor);
+            double valorInvestimento = perfilInvestimento.Calculo(conta);
+
+            MessageBox.Show("Investimento: " + valorInvestimento);
+
+            valorInvestimento -= perfilInvestimento.CalculaImposto(valorInvestimento);
+
+            MessageBox.Show("Investimento sem imposto: " + valorInvestimento);
+
+            conta.Deposita(valorInvestimento);
            
-            return resultado;
+            return conta.Saldo;
         }
     }
 }

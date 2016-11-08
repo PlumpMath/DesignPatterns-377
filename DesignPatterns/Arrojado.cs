@@ -8,30 +8,36 @@ namespace DesignPatterns
 {
     public class Arrojado : Investimento
     {
-        public double Calculo(double valor)
+        public double Calculo(Conta conta)
         {
             double resultado = 0;
-            double saldo = 0;
+            double valor = conta.Saldo;
+
             int aleatorio = new Random().Next(101);
 
             if (aleatorio > 50)
             {
-                saldo = valor * 0.006;  //-- 0,6 %
+                resultado = valor * 0.006;  //-- 0,6 %
             }
             else if (aleatorio > 30)
             {
-                saldo = valor * 0.03;   //-- 3 %
+                resultado = valor * 0.03;   //-- 3 %
             }
             else
             {
-                saldo = valor * 0.05;   //-- 5 %
+                resultado = valor * 0.05;   //-- 5 %
             }
 
-            saldo = saldo * 0.75;   //-- Imposto de 25%
-
-            resultado = valor + saldo;
-
             return resultado;
+        }
+
+        public double CalculaImposto(double valor)
+        {
+            double valorImposto = 0;
+
+            valorImposto = valor * 0.25;   //-- Imposto de 25%
+
+            return valorImposto;
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Arrojado.cs" />
     <Compile Include="CalculadorDeImposto.cs" />
     <Compile Include="Conservador.cs" />
+    <Compile Include="Conta.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

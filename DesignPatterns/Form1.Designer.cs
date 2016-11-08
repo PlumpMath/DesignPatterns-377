@@ -60,7 +60,7 @@
             this.textValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textValor.Size = new System.Drawing.Size(100, 20);
             this.textValor.TabIndex = 1;
-            this.textValor.Text = "0";
+            this.textValor.Text = "1000";
             // 
             // label1
             // 
