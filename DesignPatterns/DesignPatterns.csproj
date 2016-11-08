@@ -46,14 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrojado.cs" />
+    <Compile Include="CalculadorDeImposto.cs" />
+    <Compile Include="Conservador.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICCC.cs" />
+    <Compile Include="ICMS.cs" />
+    <Compile Include="Imposto.cs" />
+    <Compile Include="Investimento.cs" />
+    <Compile Include="ISS.cs" />
+    <Compile Include="Moderado.cs" />
+    <Compile Include="Orcamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealizadorDeInvestimentos.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
