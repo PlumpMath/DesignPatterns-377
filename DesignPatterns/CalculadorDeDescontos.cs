@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DesignPatterns
 {
@@ -13,6 +14,9 @@ namespace DesignPatterns
 
         public double Calcula(Orcamento orcamento)
         {
+
+            ListaDescontos = new List<Desconto>();
+
             //-- Adicionar os tipos de descontos existentes a lista para serem encadeados
             this.ListaDescontos.Add(new DescontoPorCincoItens() );
             this.ListaDescontos.Add(new DescontoPorMaisDeQuinhentosReais() );
