@@ -9,6 +9,8 @@ namespace DesignPatterns
     public class Conta
     {
         public double Saldo { get; private set; }
+        public string Titular { get; set; }
+
         public void Deposita(double valor)
         {
             this.Saldo += valor;

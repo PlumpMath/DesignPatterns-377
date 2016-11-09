@@ -20,6 +20,7 @@ namespace DesignPatterns
             //-- Adicionar os tipos de descontos existentes a lista para serem encadeados
             this.ListaDescontos.Add(new DescontoPorCincoItens() );
             this.ListaDescontos.Add(new DescontoPorMaisDeQuinhentosReais() );
+            this.ListaDescontos.Add(new DescontoPorVendaCasada());            
 
             this.ListaDescontos.Add(new SemDesconto() ); //-- Importante! Deve ser o último!
 
