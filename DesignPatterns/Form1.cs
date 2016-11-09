@@ -14,6 +14,7 @@ namespace DesignPatterns
     {
         public CalculadorDeImposto calculadora = new CalculadorDeImposto();
         public RealizadorDeInvestimentos calculadorInvestimento = new RealizadorDeInvestimentos();
+        public CalculadorDeDescontos calculadorDesconto = new CalculadorDeDescontos(); 
         public Conta contaTeste = new Conta();
 
         public FormPrincipal()
@@ -75,6 +76,21 @@ namespace DesignPatterns
             MessageBox.Show("Após investimento arrojado: " +
                             calculadorInvestimento.Calculo(contaTeste,
                             new Arrojado()));
+        }
+
+        private void buttonDesconto_Click(object sender, EventArgs e)
+        {
+            Orcamento testeOrcamento = new Orcamento(Convert.ToDouble(textValor.Text));
+            double valorOrcamento = Convert.ToDouble(textValor.Text);
+            int qtdItens = Convert.ToInt16(textQuantidade.Text);
+            double valorItem = valorOrcamento/qtdItens;
+
+            for ( int i = 0; i < qtdItens; i++)
+            {
+                testeOrcamento.AdicionaItem(new Item("Teste: "+i, valorItem));
+            }
+
+            MessageBox.Show("Desconto : " + calculadorDesconto.Calcula(testeOrcamento));
         }
     }
 }
