@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.IO;
+using System.Xml;
 
 namespace DesignPatterns
 {
@@ -91,6 +94,14 @@ namespace DesignPatterns
             }
 
             MessageBox.Show("Desconto : " + calculadorDesconto.Calcula(testeOrcamento));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            CRM objCRM = new CRM(@"C:\CRM_Retorno.xml");
+            MessageBox.Show(objCRM.SituacaoCRM("RJ"));
+
         }
     }
 }
