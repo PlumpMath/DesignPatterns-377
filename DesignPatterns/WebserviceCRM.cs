@@ -10,15 +10,13 @@ using System.Xml.Serialization;
 
 namespace DesignPatterns
 {
-    class WebserviceCRM
+    public class WebserviceCRM
     {
         XmlSerializer serializer = new XmlSerializer(typeof(Rss));
-using (FileStream fileStream = new FileStream("C:\CRM_Retorno.xml", FileMode.Open)) 
-{
-    Rss result = (Rss)serializer.Deserialize(fileStream);
-}
+        FileStream fileStream = new FileStream(@"C:\CSharp\CRM_Retorno.xml", FileMode.Open);
+        Rss result;
 
-[XmlRoot("rss")]
+        [XmlRoot("rss")]
         public class Rss
         {
             [XmlElement("channel")]
@@ -66,6 +64,34 @@ using (FileStream fileStream = new FileStream("C:\CRM_Retorno.xml", FileMode.Ope
             [XmlElement("situacao")]
             public string Situacao { get; set; }
         }
+        public bool LerRetorno()
+        {
+            bool resultado = false;
+            string mensagem = "";
+            string msgUF = "";
 
+            this.result = (Rss)serializer.Deserialize(fileStream);
+
+            mensagem += String.Format("Consultas efetuadas: {0} de {1}", this.result.channel.ApiConsultas, this.result.channel.ApiLimite)+"\n";
+
+            foreach (Item CrmUf in this.result.channel.Items)
+            {
+                if ( CrmUf.Uf == "SP")
+                {
+                    msgUF = String.Format("{0}: {1} da UF: {2} \nNome: {3}\nSituação: {4}\n", CrmUf.Tipo, CrmUf.Numero, CrmUf.Uf, CrmUf.Nome, CrmUf.Situacao);
+                    if (!String.IsNullOrEmpty(CrmUf.Profissao))
+                    {
+                        msgUF += "Especialidade: "+ CrmUf.Profissao;
+                    }
+                }
+
+                mensagem += String.Format("Status do CRM: {0} na UF: {1} é: {2} ", CrmUf.Numero, CrmUf.Uf, CrmUf.Situacao) +"\n";
+            }
+
+            MessageBox.Show(mensagem);
+            MessageBox.Show(msgUF);
+
+            return resultado;
+        }
     }
 }

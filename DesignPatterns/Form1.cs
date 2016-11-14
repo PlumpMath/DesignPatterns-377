@@ -99,8 +99,12 @@ namespace DesignPatterns
         private void button1_Click(object sender, EventArgs e)
         {
 
-            CRM objCRM = new CRM(@"C:\CRM_Retorno.xml");
-            MessageBox.Show(objCRM.SituacaoCRM("RJ"));
+            //CRM objCRM = new CRM(@"C:\CRM_Retorno.xml");
+            //MessageBox.Show(objCRM.SituacaoCRM("RJ"));
+
+            WebserviceCRM objCRM = new WebserviceCRM();
+
+            objCRM.LerRetorno();
 
         }
     }
