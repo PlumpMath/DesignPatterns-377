@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-    public class ICMS : Imposto
+    //-- IMA - Imposto Muito Alto
+    public class IMA: Imposto
     {
-        public ICMS(Imposto OutroImposto) : base(OutroImposto) { }
-        public ICMS() : base() { }
+        public IMA(Imposto OutroImposto) : base(OutroImposto) { }
+        public IMA() : base() { }
         public override double Calcula(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.05 + 50 + CalculoDoOutroImposto(orcamento);
+            return orcamento.Valor * 0.2 + CalculoDoOutroImposto(orcamento);
         }
     }
 }

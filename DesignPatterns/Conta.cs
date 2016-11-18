@@ -11,6 +11,11 @@ namespace DesignPatterns
         public double Saldo { get; private set; }
         public string Titular { get; set; }
 
+        public int Agencia { get; set; }
+        public int NumeroConta { get; set; }
+
+        public DateTime Data { get; set; }
+
         public void Deposita(double valor)
         {
             this.Saldo += valor;

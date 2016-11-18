@@ -35,6 +35,9 @@
             this.buttonSair = new System.Windows.Forms.Button();
             this.buttonICCC = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonIHIT = new System.Windows.Forms.Button();
+            this.buttonICPP = new System.Windows.Forms.Button();
+            this.buttonIKCV = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonArrojado = new System.Windows.Forms.Button();
             this.buttonModerado = new System.Windows.Forms.Button();
@@ -43,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textQuantidade = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonEncadeado = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -107,15 +111,48 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonIHIT);
+            this.groupBox1.Controls.Add(this.buttonICPP);
+            this.groupBox1.Controls.Add(this.buttonIKCV);
             this.groupBox1.Controls.Add(this.buttonICCC);
             this.groupBox1.Controls.Add(this.buttonISS);
             this.groupBox1.Controls.Add(this.buttonICMS);
             this.groupBox1.Location = new System.Drawing.Point(12, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(99, 106);
+            this.groupBox1.Size = new System.Drawing.Size(99, 198);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Imposto";
+            // 
+            // buttonIHIT
+            // 
+            this.buttonIHIT.Location = new System.Drawing.Point(6, 164);
+            this.buttonIHIT.Name = "buttonIHIT";
+            this.buttonIHIT.Size = new System.Drawing.Size(87, 23);
+            this.buttonIHIT.TabIndex = 8;
+            this.buttonIHIT.Text = "Testar IHIT";
+            this.buttonIHIT.UseVisualStyleBackColor = true;
+            this.buttonIHIT.Click += new System.EventHandler(this.buttonIHIT_Click);
+            // 
+            // buttonICPP
+            // 
+            this.buttonICPP.Location = new System.Drawing.Point(6, 135);
+            this.buttonICPP.Name = "buttonICPP";
+            this.buttonICPP.Size = new System.Drawing.Size(87, 23);
+            this.buttonICPP.TabIndex = 7;
+            this.buttonICPP.Text = "Testar ICPP";
+            this.buttonICPP.UseVisualStyleBackColor = true;
+            this.buttonICPP.Click += new System.EventHandler(this.buttonICPP_Click);
+            // 
+            // buttonIKCV
+            // 
+            this.buttonIKCV.Location = new System.Drawing.Point(6, 106);
+            this.buttonIKCV.Name = "buttonIKCV";
+            this.buttonIKCV.Size = new System.Drawing.Size(87, 23);
+            this.buttonIKCV.TabIndex = 6;
+            this.buttonIKCV.Text = "Testar IKCV";
+            this.buttonIKCV.UseVisualStyleBackColor = true;
+            this.buttonIKCV.Click += new System.EventHandler(this.buttonIKCV_Click);
             // 
             // groupBox2
             // 
@@ -162,9 +199,9 @@
             // buttonDesconto
             // 
             this.buttonDesconto.AutoEllipsis = true;
-            this.buttonDesconto.Location = new System.Drawing.Point(123, 162);
+            this.buttonDesconto.Location = new System.Drawing.Point(117, 223);
             this.buttonDesconto.Name = "buttonDesconto";
-            this.buttonDesconto.Size = new System.Drawing.Size(87, 40);
+            this.buttonDesconto.Size = new System.Drawing.Size(99, 27);
             this.buttonDesconto.TabIndex = 12;
             this.buttonDesconto.Text = "Testar desconto";
             this.buttonDesconto.UseVisualStyleBackColor = true;
@@ -172,16 +209,17 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 162);
+            this.label2.AutoEllipsis = true;
+            this.label2.Location = new System.Drawing.Point(117, 163);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 13);
+            this.label2.Size = new System.Drawing.Size(99, 31);
             this.label2.TabIndex = 10;
             this.label2.Text = "Quantidade de itens";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textQuantidade
             // 
-            this.textQuantidade.Location = new System.Drawing.Point(12, 178);
+            this.textQuantidade.Location = new System.Drawing.Point(117, 197);
             this.textQuantidade.Name = "textQuantidade";
             this.textQuantidade.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textQuantidade.Size = new System.Drawing.Size(99, 20);
@@ -191,19 +229,31 @@
             // button1
             // 
             this.button1.AutoEllipsis = true;
-            this.button1.Location = new System.Drawing.Point(18, 211);
+            this.button1.Location = new System.Drawing.Point(12, 315);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 40);
+            this.button1.Size = new System.Drawing.Size(204, 40);
             this.button1.TabIndex = 14;
             this.button1.Text = "Testar webservice";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonEncadeado
+            // 
+            this.buttonEncadeado.AutoEllipsis = true;
+            this.buttonEncadeado.Location = new System.Drawing.Point(12, 269);
+            this.buttonEncadeado.Name = "buttonEncadeado";
+            this.buttonEncadeado.Size = new System.Drawing.Size(204, 40);
+            this.buttonEncadeado.TabIndex = 15;
+            this.buttonEncadeado.Text = "Testar imposto encadeado";
+            this.buttonEncadeado.UseVisualStyleBackColor = true;
+            this.buttonEncadeado.Click += new System.EventHandler(this.buttonEncadeado_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(225, 263);
+            this.ClientSize = new System.Drawing.Size(225, 367);
+            this.Controls.Add(this.buttonEncadeado);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textQuantidade);
@@ -241,6 +291,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textQuantidade;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonIHIT;
+        private System.Windows.Forms.Button buttonICPP;
+        private System.Windows.Forms.Button buttonIKCV;
+        private System.Windows.Forms.Button buttonEncadeado;
     }
 }
 

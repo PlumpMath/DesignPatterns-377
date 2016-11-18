@@ -107,5 +107,68 @@ namespace DesignPatterns
             objCRM.LerRetorno();
 
         }
+
+        private void buttonIKCV_Click(object sender, EventArgs e)
+        {
+            Orcamento testeOrcamento = new Orcamento(Convert.ToDouble(textValor.Text));
+            double valorOrcamento = Convert.ToDouble(textValor.Text);
+            int qtdItens = Convert.ToInt16(textQuantidade.Text);
+            double valorItem = valorOrcamento / qtdItens;
+
+            for (int i = 0; i < qtdItens; i++)
+            {
+                testeOrcamento.AdicionaItem(new Item("Teste: " + i, valorItem));
+            }
+
+            MessageBox.Show("Imposto IKCV: " + calculadora.Calcula(testeOrcamento,
+                                                        new IKCV()));
+        }
+
+        private void buttonICPP_Click(object sender, EventArgs e)
+        {
+            Orcamento testeOrcamento = new Orcamento(Convert.ToDouble(textValor.Text));
+            double valorOrcamento = Convert.ToDouble(textValor.Text);
+            int qtdItens = Convert.ToInt16(textQuantidade.Text);
+            double valorItem = valorOrcamento / qtdItens;
+
+            for (int i = 0; i < qtdItens; i++)
+            {
+                testeOrcamento.AdicionaItem(new Item("Teste: " + i, valorItem));
+            }
+            MessageBox.Show("Imposto ICPP: " + calculadora.Calcula(testeOrcamento,
+                                                        new ICPP()));
+        }
+
+        private void buttonIHIT_Click(object sender, EventArgs e)
+        {
+            Orcamento testeOrcamento = new Orcamento(Convert.ToDouble(textValor.Text));
+            double valorOrcamento = Convert.ToDouble(textValor.Text);
+            int qtdItens = Convert.ToInt16(textQuantidade.Text);
+            double valorItem = valorOrcamento / qtdItens;
+
+            for (int i = 0; i < qtdItens; i++)
+            {
+                testeOrcamento.AdicionaItem(new Item("Teste: " +i, valorItem));
+            }
+
+            MessageBox.Show("Imposto IHIT: " + calculadora.Calcula(testeOrcamento,
+                                                        new IHIT()));
+        }
+
+        private void buttonEncadeado_Click(object sender, EventArgs e)
+        {
+            Orcamento testeOrcamento = new Orcamento(Convert.ToDouble(textValor.Text));
+            double valorOrcamento = Convert.ToDouble(textValor.Text);
+            int qtdItens = Convert.ToInt16(textQuantidade.Text);
+            double valorItem = valorOrcamento / qtdItens;
+
+            for (int i = 0; i < qtdItens; i++)
+            {
+                testeOrcamento.AdicionaItem(new Item("Teste: " + i, valorItem));
+            }
+
+            MessageBox.Show("Imposto composto ICMS/ISS: " + calculadora.Calcula(testeOrcamento,
+                                                                                new ICMS(new ISS(new IMA()))));
+        }
     }
 }
