@@ -32,8 +32,15 @@ namespace DesignPatterns
 
     public class ItemDaNota
     {
-        public string Nome;
+        public string Descricao;
         public double Valor;
+
+        public ItemDaNota( String Descricao, Double Valor)
+        {
+            this.Descricao = Descricao;
+            this.Valor = Valor;
+        }
+
     }
 
     class NotaFiscalBuilder
@@ -50,24 +57,52 @@ namespace DesignPatterns
         public NotaFiscalBuilder ParaEmpresa(String razaoSocial)
         {
             this.RazaoSocial = razaoSocial;
-            return this; // retorno eu mesmo, o próprio builder, para que o cliente continue utilizando
+            return this; //-- retornar o próprio builder, para que continue utilizando
         }
 
         public NotaFiscalBuilder ComCnpj(String cnpj)
         {
             this.Cnpj = cnpj;
-            return this;
+            return this; //-- retornar o próprio builder, para que continue utilizando
         }
 
+        public NotaFiscalBuilder AdicionaItem(String descricao, Double valor)
+        {
+            //-- Criar o item
+            ItemDaNota item = new ItemDaNota(descricao, valor);
+            
+            //-- Adicionar ao construtor
+            this.ComItem(item);
+
+            return this; //-- retornar o próprio builder, para que continue utilizando
+        }
         public NotaFiscalBuilder ComItem(ItemDaNota item)
         {
             todosItens.Add(item);
             ValorTotal += item.Valor;
             Impostos += item.Valor * 0.05;
-            return this;
+            return this; //-- retornar o próprio builder, para que continue utilizando
         }
-
-        // código continua aqui com a mesma ideia
-        // substituindo void por NotaFiscalBuilder e retornando this em todos eles...
+        public NotaFiscalBuilder ComData(DateTime data)
+        {
+            this.Data = data;
+            return this; //-- retornar o próprio builder, para que continue utilizando
+        }
+        public NotaFiscalBuilder ComObservacao(String observacao)
+        {
+            //-- Se estiver vazio
+            if ( string.IsNullOrEmpty(this.Observacoes))
+            {
+                //-- Inicializa variável
+                this.Observacoes = observacao;
+            }
+            else //-- Se não estiver vazio
+            {
+                //-- Quebra linha e concatena a próxima observação
+                this.Observacoes += "\n" + observacao;
+            }
+            
+            return this; //-- retornar o próprio builder, para que continue utilizando
+        }
     }
 }
